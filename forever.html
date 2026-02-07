@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Forever — Happy Rose Day</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Page-specific styles for the Forever page */
+    body { overflow: auto; }
+    .forever-wrap {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      text-align: center;
+      color: #fff;
+    }
+    .card {
+      width: 100%;
+      max-width: 900px;
+      padding: 60px 40px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      backdrop-filter: blur(14px);
+      box-shadow: 0 12px 60px rgba(10,10,30,0.6), 0 0 80px rgba(255,20,147,0.08);
+    }
+    .title { font-size: 42px; margin-bottom: 16px; color: #ffd6e8; text-shadow: 0 0 30px rgba(255,105,180,0.5); }
+    .subtitle { font-size: 20px; margin-bottom: 24px; color: rgba(255,255,255,0.9); }
+    .rose-illustration { margin: 24px 0 10px; filter: drop-shadow(0 0 30px rgba(255,105,180,0.4)); }
+    .cta { margin-top: 30px; }
+    .home-btn { padding: 12px 28px; border-radius: 28px; border: none; background: linear-gradient(90deg,#ff5da2,#ff9cc2); color: white; font-weight:700; cursor:pointer; }
+    .sparkles { position: fixed; inset:0; pointer-events:none; z-index:0; }
+  </style>
+</head>
+<body>
+  <div class="forever-wrap">
+    <div class="card">
+      <div class="title">Yes — Forever Starts Now ❤️</div>
+      <div class="subtitle">Thank you for saying yes. From this moment on I promise to cherish, protect and adore you. Let's bloom together like the most beautiful rose.</div>
+
+      <svg class="rose-illustration" width="260" height="320" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="fGrad" cx="50%" cy="30%" r="60%">
+            <stop offset="0%" style="stop-color:#ffb6d5;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#c41e3a;stop-opacity:1" />
+          </radialGradient>
+        </defs>
+        <path d="M100 260 Q96 290 90 300" stroke="#2d5a3d" stroke-width="3" fill="none" />
+        <circle cx="100" cy="95" r="30" fill="url(#fGrad)" />
+        <circle cx="140" cy="120" r="27" fill="url(#fGrad)" />
+        <circle cx="155" cy="155" r="24" fill="url(#fGrad)" />
+        <circle cx="125" cy="190" r="22" fill="url(#fGrad)" />
+        <circle cx="85" cy="200" r="22" fill="url(#fGrad)" />
+        <circle cx="55" cy="160" r="23" fill="url(#fGrad)" />
+        <circle cx="50" cy="120" r="26" fill="url(#fGrad)" />
+        <circle cx="100" cy="145" r="14" fill="#e91e63" />
+      </svg>
+
+      <div class="cta">
+        <button class="home-btn" id="homeBtn">Back to Surprise</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="sparkles" id="sparkles"></div>
+
+  <audio id="foreverMusic" loop>
+    <source src="" />
+  </audio>
+
+  <script>
+    // Small celebratory effects on this page
+    document.getElementById('homeBtn').addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
+
+    // Create simple sparkles
+    (function createSparkles(){
+      const container = document.getElementById('sparkles');
+      for(let i=0;i<30;i++){
+        const s = document.createElement('div');
+        s.textContent = '✨';
+        s.style.position = 'absolute';
+        s.style.left = Math.random()*100+'%';
+        s.style.top = Math.random()*100+'%';
+        s.style.fontSize = (12+Math.random()*28)+'px';
+        s.style.opacity = 0.8;
+        s.style.transform = 'translate(-50%,-50%)';
+        s.style.animation = `sparkle ${1.5+Math.random()*2}s ease-in-out ${Math.random()*1}s infinite`;
+        container.appendChild(s);
+      }
+    })();
+
+    // Optional: play a short chord using WebAudio when page loads
+    try{
+      const ctx = new (window.AudioContext||window.webkitAudioContext)();
+      const now = ctx.currentTime;
+      const o1 = ctx.createOscillator();
+      const o2 = ctx.createOscillator();
+      const g = ctx.createGain();
+      o1.type = 'sine'; o2.type = 'sine';
+      o1.frequency.setValueAtTime(261.63, now); // C4
+      o2.frequency.setValueAtTime(329.63, now); // E4
+      g.gain.setValueAtTime(0.001, now);
+      o1.connect(g); o2.connect(g); g.connect(ctx.destination);
+      o1.start(now); o2.start(now);
+      g.gain.exponentialRampToValueAtTime(0.08, now+0.05);
+      g.gain.exponentialRampToValueAtTime(0.0001, now+2.5);
+      o1.stop(now+2.5); o2.stop(now+2.5);
+    }catch(e){/* ignore */}
+  </script>
+</body>
+</html>

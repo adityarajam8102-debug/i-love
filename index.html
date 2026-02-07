@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Rose Day - A Romantic Celebration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-container">
+            <svg class="loading-rose" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <radialGradient id="roseGradient" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" style="stop-color:#ff69b4;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#c41e3a;stop-opacity:1" />
+                    </radialGradient>
+                </defs>
+                <!-- Rose petals -->
+                <circle cx="50" cy="35" r="12" fill="url(#roseGradient)" class="petal-load petal-1" />
+                <circle cx="65" cy="42" r="11" fill="url(#roseGradient)" class="petal-load petal-2" />
+                <circle cx="68" cy="57" r="11" fill="url(#roseGradient)" class="petal-load petal-3" />
+                <circle cx="57" cy="68" r="10" fill="url(#roseGradient)" class="petal-load petal-4" />
+                <circle cx="42" cy="70" r="10" fill="url(#roseGradient)" class="petal-load petal-5" />
+                <circle cx="32" cy="58" r="11" fill="url(#roseGradient)" class="petal-load petal-6" />
+                <circle cx="35" cy="42" r="11" fill="url(#roseGradient)" class="petal-load petal-7" />
+                <circle cx="50" cy="50" r="8" fill="#c41e3a" class="rose-center" />
+                <!-- Stem -->
+                <line x1="50" y1="70" x2="50" y2="95" stroke="#1a5c3a" stroke-width="2" />
+            </svg>
+            <p class="loading-text">Happy Rose Day, Miss Shubhi Aditya Khare Jii</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="mainContent" class="main-content hidden">
+        <!-- Background Elements -->
+        <div class="background">
+            <!-- Particle Container -->
+            <div id="particleContainer" class="particle-container"></div>
+            <!-- Petal Container -->
+            <div id="petalContainer" class="petal-container"></div>
+            <!-- Fireworks Container -->
+            <div id="fireworksContainer" class="fireworks-container"></div>
+        </div>
+
+        <!-- Content Wrapper -->
+        <div class="content-wrapper">
+            <!-- Intro Text -->
+            <div class="intro-section">
+                <h1 class="intro-text">Happy Rose Day ❤️</h1>
+            </div>
+
+            <!-- Main Rose Section -->
+            <div class="rose-section">
+                <!-- Rose SVG Container -->
+                <div class="rose-container">
+                    <svg class="main-rose" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <radialGradient id="mainRoseGradient" cx="50%" cy="30%" r="60%">
+                                <stop offset="0%" style="stop-color:#ff1493;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#ff69b4;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#c41e3a;stop-opacity:1" />
+                            </radialGradient>
+                            <filter id="glow">
+                                <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur" />
+                                    <feMergeNode in="SourceGraphic" />
+                                </feMerge>
+                            </filter>
+                        </defs>
+
+                        <!-- Stem and Leaves -->
+                        <path d="M 100 250 Q 95 280 90 300" stroke="#2d5a3d" stroke-width="3" fill="none" />
+                        <ellipse cx="85" cy="270" rx="8" ry="15" fill="#2d5a3d" transform="rotate(-35 85 270)" />
+                        <ellipse cx="115" cy="275" rx="8" ry="15" fill="#2d5a3d" transform="rotate(35 115 275)" />
+
+                        <!-- Outer Petals (Layer 1) -->
+                        <circle cx="100" cy="80" r="25" fill="url(#mainRoseGradient)" filter="url(#glow)" class="petal-bloom petal-1" />
+                        <circle cx="135" cy="100" r="23" fill="url(#mainRoseGradient)" filter="url(#glow)" class="petal-bloom petal-2" />
+                        <circle cx="150" cy="140" r="22" fill="url(#mainRoseGradient)" filter="url(#glow)" class="petal-bloom petal-3" />
+                        <circle cx="130" cy="180" r="21" fill="url(#mainRoseGradient)" filter="url(#glow)" class="petal-bloom petal-4" />
+                        <circle cx="85" cy="190" r="21" fill="url(#mainRoseGradient)" filter="url(#glow)" class="petal-bloom petal-5" />
+                        <circle cx="65" cy="150" r="22" fill="url(#mainRoseGradient)" filter="url(#glow)" class="petal-bloom petal-6" />
+                        <circle cx="50" cy="100" r="23" fill="url(#mainRoseGradient)" filter="url(#glow)" class="petal-bloom petal-7" />
+
+                        <!-- Middle Petals (Layer 2) -->
+                        <circle cx="100" cy="110" r="18" fill="url(#mainRoseGradient)" filter="url(#glow)" class="petal-bloom petal-8" />
+                        <circle cx="125" cy="130" r="17" fill="url(#mainRoseGradient)" filter="url(#glow)" class="petal-bloom petal-9" />
+                        <circle cx="115" cy="160" r="16" fill="url(#mainRoseGradient)" filter="url(#glow)" class="petal-bloom petal-10" />
+                        <circle cx="80" cy="160" r="16" fill="url(#mainRoseGradient)" filter="url(#glow)" class="petal-bloom petal-11" />
+                        <circle cx="75" cy="130" r="17" fill="url(#mainRoseGradient)" filter="url(#glow)" class="petal-bloom petal-12" />
+
+                        <!-- Inner Petals (Layer 3) -->
+                        <circle cx="100" cy="130" r="12" fill="#e91e63" filter="url(#glow)" class="petal-bloom petal-13" />
+                        <circle cx="112" cy="140" r="11" fill="#e91e63" filter="url(#glow)" class="petal-bloom petal-14" />
+                        <circle cx="105" cy="155" r="10" fill="#e91e63" filter="url(#glow)" class="petal-bloom petal-15" />
+                        <circle cx="88" cy="150" r="10" fill="#e91e63" filter="url(#glow)" class="petal-bloom petal-16" />
+
+                        <!-- Rose Center -->
+                        <circle cx="100" cy="145" r="8" fill="#c41e3a" filter="url(#glow)" class="rose-center-main" />
+                    </svg>
+
+                    <!-- Water Reflection Shimmer -->
+                    <div class="water-reflection"></div>
+                </div>
+            </div>
+
+            <!-- Message Text with Typewriter Effect -->
+            <div class="message-section">
+                <p class="typewriter-text">You are the most beautiful rose in my life 🌹</p>
+            </div>
+
+            <!-- Action Button -->
+            <div class="button-section">
+                <button class="heart-button" id="actionButton">
+                    <span class="button-text">Click to Open My Heart</span>
+                    <span class="button-glow"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Popup Card with Glassmorphism -->
+        <div id="popupCard" class="popup-card hidden">
+            <div class="popup-content">
+                <button class="close-btn" id="closeBtn">×</button>
+                <div class="popup-text">
+                    <h2>Will You Be My Forever? ❤️</h2>
+                    <p>Every moment with you feels like a beautiful rose in full bloom.</p>
+                </div>
+                <div class="popup-buttons">
+                    <button class="yes-btn">Yes, Forever! 💕</button>
+                    <button class="no-btn">Let Me Think...</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Heart Explosion Container -->
+        <div id="heartExplosionContainer" class="heart-explosion-container"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
